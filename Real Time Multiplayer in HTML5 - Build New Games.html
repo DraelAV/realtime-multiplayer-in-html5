@@ -1,0 +1,2249 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://buildnewgames.com/real-time-multiplayer/ -->
+<html lang="en" class="article gr__buildnewgames_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Real Time Multiplayer in HTML5 - Build New Games</title>
+  <meta name="author" content="Bocoup">
+  
+  <meta name="description" content="Real Time Multiplayer in HTML5 Jul 18th, 2012 | by Sven Bergström Multiplayer and browsers When you consider making multiplayer games, there are …">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  
+  
+  <link rel="canonical" href="http://buildnewgames.com/real-time-multiplayer">
+  <link href="http://buildnewgames.com/favicon.png" rel="icon">
+
+  <link href="./Real Time Multiplayer in HTML5 - Build New Games_files/reset.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="./Real Time Multiplayer in HTML5 - Build New Games_files/factory.css">
+
+  <!--[if (gt IE 8)|!(IE)]><!-->
+    <link href="./Real Time Multiplayer in HTML5 - Build New Games_files/fonts.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!--<![endif]-->
+  <link href="./Real Time Multiplayer in HTML5 - Build New Games_files/base.css" media="screen, projection" rel="stylesheet" type="text/css">
+  
+  <!-- 
+  <link href="/assets/css/screen-small.css" media="screen and (max-width: 480px)" rel="stylesheet" type="text/css">
+  <link href="/assets/css/screen-medium.css" media="screen and (min-width: 481px)" rel="stylesheet" type="text/css">
+  <link href="/assets/css/screen-large.css" media="screen and (min-width: 1024px)" rel="stylesheet" type="text/css">
+  <link href="/assets/css/screen-horizontally-small.css" rel="stylesheet" type="text/css">
+   -->
+  <link href="./Real Time Multiplayer in HTML5 - Build New Games_files/screen-medium.css" rel="stylesheet" type="text/css">
+
+  <link href="http://buildnewgames.com/atom.xml" rel="alternate" title="Build New Games" type="application/atom+xml">
+
+  <!--[if lt IE 9]>
+    <script src="/js/lib/respond.min.js"></script>
+  <![endif]-->
+<script src="./Real Time Multiplayer in HTML5 - Build New Games_files/cb=gapi.loaded_1" async=""></script><script src="./Real Time Multiplayer in HTML5 - Build New Games_files/cb=gapi.loaded_0" async=""></script><script type="text/javascript" async="" src="./Real Time Multiplayer in HTML5 - Build New Games_files/ga.js"></script><script type="text/javascript" async="" src="./Real Time Multiplayer in HTML5 - Build New Games_files/plusone.js" gapi_processed="true"></script><script id="facebook-jssdk" src="./Real Time Multiplayer in HTML5 - Build New Games_files/all.js"></script><script type="text/javascript" async="" src="./Real Time Multiplayer in HTML5 - Build New Games_files/embed.js"></script><script type="text/javascript" async="" src="./Real Time Multiplayer in HTML5 - Build New Games_files/widgets.js"></script><script type="text/javascript" charset="utf-8" async="" src="./Real Time Multiplayer in HTML5 - Build New Games_files/button.07a87b943a27e2a4a74c40e24a4a5ccc.js"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+
+
+<body class="clearfix " data-gr-c-s-loaded="true" data-feedly-mini="yes">
+
+  <banner>
+
+    <header id="header">
+  
+  <a href="http://buildnewgames.com/" class="bng-logo"> 
+    <img src="./Real Time Multiplayer in HTML5 - Build New Games_files/bng-logo.png" alt="BNG">
+  </a>
+
+  <nav class="large-nav">
+    <ul>
+      <li><a href="http://buildnewgames.com/articles/">Articles</a></li>
+      <li><a href="http://buildnewgames.com/authors/">Authors</a></li>
+      <li><a href="http://buildnewgames.com/about/">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="home-page-info">
+    <h1><a href="http://buildnewgames.com/">Build New Games</a></h1>
+    <p>Open Web techniques for cutting-edge game development</p>
+  </div>
+
+</header>
+
+    
+
+  </banner>
+
+  
+
+  
+
+    <aside class="category-list medium">
+  <h2>Topics</h2>
+  <ul>
+    <li><a class="category" href="http://buildnewgames.com/blog/categories/design/">Design</a></li>
+    <li><a class="category" href="http://buildnewgames.com/blog/categories/engines/">Engines</a></li>
+    <li><a class="category" href="http://buildnewgames.com/blog/categories/graphics/">Graphics</a></li>
+    <li><a class="category" href="http://buildnewgames.com/blog/categories/javascript/">JavaScript</a></li>
+    <li><a class="category" href="http://buildnewgames.com/blog/categories/mobile/">Mobile</a></li>
+    <li><a class="category" href="http://buildnewgames.com/blog/categories/multiplayer/">Multiplayer</a></li>
+    <li><a class="category" href="http://buildnewgames.com/blog/categories/platform/">Platform</a></li>
+    
+  </ul>
+  <div class="advertisement">
+    <script type="text/javascript"><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://revive.bocoup.com/www/delivery/ajs.php':'http://revive.bocoup.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=6");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><script type="text/javascript" src="http://revive.bocoup.com/www/delivery/ajs.php?zoneid=6&amp;cb=72184798857&amp;charset=UTF-8&amp;loc=http%3A//buildnewgames.com/real-time-multiplayer/"></script><noscript>&lt;a href='http://revive.bocoup.com/www/delivery/ck.php?n=a23a1951&amp;amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'&gt;&lt;img src='http://revive.bocoup.com/www/delivery/avw.php?zoneid=6&amp;amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;amp;n=a23a1951' border='0' alt='' /&gt;&lt;/a&gt;</noscript>
+<span class="fine">Ads by <a href="http://bocoup.com/">Bocoup</a></span>
+
+  </div>
+</aside>
+
+  
+
+
+  
+    <section id="main" class="article">
+      <article>
+  
+    <header>
+      
+        <h1 class="entry-title">Real Time Multiplayer in HTML5</h1>
+      
+      
+        <p class="meta">
+          
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-18T12:00:00+00:00" pubdate="" data-updated="true">Jul 18<span>th</span>, 2012</time>
+           | by <a href="http://underscorediscovery.com/">Sven Bergström</a>
+        </p>
+      
+    </header>
+
+  
+  
+  
+    <div class="entry-content"><h2 id="multiplayer-and-browsers">Multiplayer and browsers</h2>
+
+<p>When you consider making multiplayer games, there are many methods available for creating a game that friends can play online. There is a good variety of multiplayer game types - take for example a card game you play synchronously with friends. Turns are made, information is exchanged in (semi) real time and the game progresses in discrete steps. Another example, Chess, can be asynchronous. Players take their time, contemplating possible actions and play their next move one week from now. These types of multiplayer games exist in browsers, and have for a long time. The nature of the browser itself makes it easy to make semi real time games, but we want more-visceral real time action.</p>
+
+<p>Card games and Chess both usually require communication with a server and communication with the other players in order to work online. This is the foundation of a multiplayer experience to be possible - and for a long time this has existed via HTTP, where POST and GET have always been used to manage games.</p>
+
+<p>The trouble with these methods is the delay, posting a message and waiting for a response each time is just too slow. It works for the semi real time and asynchronous games, but real time games require messages sent and received sometimes in the region of 33~66 times per second, something that is not quite possible with HTTP alone.</p>
+
+<p>Luckily, in modern browsers we can take one step higher, and have a real time connection between a server and clients. The purpose of this discussion is to present one overview of how multiplayer games are made. We will look at input prediction, lag compensation, client interpolation and more importantly - how to do this in your normal browser using websockets. The article will present a playable demo with parameters to play with, showcasing the concepts discussed.</p>
+
+<h2 id="the-technologies-that-we-have-chosen-and-why">The technologies that we have chosen and why</h2>
+
+<h3 id="socketio">Socket.io</h3>
+
+<p><a href="http://socket.io/">socket.io</a> is a powerful and flexible server-side and client-side component that enables real time networking in your browser. Not only does it support newer technologies like web sockets, but it also falls back safely onto a Flash networking layer, XHR or JSON long polling and even an HTML file transport layer. Most appealing about it perhaps is the simplicity and inherently asynchronous nature it brings, which is extremely useful when writing server and client code.</p>
+
+<p>Another benefit of using socket.io is the fact that it ties into Node.js seamlessly. When coupled with Express, on connection, it can serve the client-side includes, game files, and data, making the integration clean and easy. Once you set it up, the amount of code between first connection and communication with a client is nothing short of amazing. And it would work in all browsers, mobile included.</p>
+
+<h3 id="nodejs">Node.js</h3>
+
+<p><a href="http://nodejs.org/">node.js</a> is an easy to use, flexible and cross platform tool. It is like a swiss army knife of evented IO. It has a massive following of dedicated users, developers and module authors. It is supported on a good number of server hosting platforms for web applications, and is easy to install on a dedicated server of your own, so finding a host should not be a problem.</p>
+
+<p>Among many of these great modules available for Node.js, is a web framework called <a href="http://expressjs.com/">Express</a>. It covers serving files, complex routing, client authentication and sessions, and much more. It fits perfectly into the stack between socket.io and our clients, where socket.io can serve its files to the clients through Express and Express can handle the game content for us.</p>
+
+<h3 id="canvashtml5">Canvas/HTML5</h3>
+
+<p>This article uses a 2D canvas to demonstrate the methods we are going to cover, which allows us to draw some text and boxes really easily.</p>
+
+<h2 id="getting-started-with-a-real-time-multiplayer-connection-in-your-browser">Getting started with a real time multiplayer connection in your browser</h2>
+
+<p>Covering all possible options and installations and configurations for the above technology
+is a little out of scope for this article, but each of the above tools have their own documentation
+and should not take long to have set up and working together. For the sake of brevity we will dive right into making a simple game example instead. The information below is the minimum required to set up an empty canvas, connect to the socket.io server and receive messages.</p>
+
+<h3 id="start-with-a-simple-web-server-enter-express">Start with a simple web server, enter Express</h3>
+
+<p>The code for a simple Express server is really short and straightforward. It serves files on a port specified (4004 in this case) and it only serves files from the root folder (like <code>index.html</code>), and from a specific ‘game’ path we specify (like <code>game/</code>).</p>
+
+<script src="./Real Time Multiplayer in HTML5 - Build New Games_files/2216646.js"></script><link rel="stylesheet" href="./Real Time Multiplayer in HTML5 - Build New Games_files/gist-embed-bb1ffee40facc2473eb18927ac572162447f6c79d0269cce93b52f9066a5da11.css"><div id="gist2216646" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-multi-player-html5-games-00-express-js" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-javascript">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-multi-player-html5-games-00-express-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c">/*  Copyright (c) 2012 Sven "FuzzYspo0N" Bergström </span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-c">    </span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-c">    http://underscorediscovery.com</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-c">    </span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-c">    MIT Licensed. See LICENSE for full license.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-c"></span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-c">    Usage : node simplest.app.js</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-c">*/</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC9" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC10" class="blob-code blob-code-inner js-file-line">   <span class="pl-k">var</span> </td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC11" class="blob-code blob-code-inner js-file-line">        gameport        <span class="pl-k">=</span> <span class="pl-c1">process</span>.<span class="pl-smi">env</span>.<span class="pl-c1">PORT</span> <span class="pl-k">||</span> <span class="pl-c1">4004</span>,</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC12" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC13" class="blob-code blob-code-inner js-file-line">        io              <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>socket.io<span class="pl-pds">'</span></span>),</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC14" class="blob-code blob-code-inner js-file-line">        express         <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>express<span class="pl-pds">'</span></span>),</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC15" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">UUID</span>            <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>node-uuid<span class="pl-pds">'</span></span>),</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC16" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC17" class="blob-code blob-code-inner js-file-line">        verbose         <span class="pl-k">=</span> <span class="pl-c1">false</span>,</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC18" class="blob-code blob-code-inner js-file-line">        app             <span class="pl-k">=</span> <span class="pl-smi">express</span>.<span class="pl-en">createServer</span>();</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC19" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC20" class="blob-code blob-code-inner js-file-line"><span class="pl-c">/* Express server set up. */</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC21" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC22" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//The express server handles passing our content to the browser,</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC23" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//As well as routing users where they need to go. This example is bare bones</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC24" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//and will serve any file the user requests from the root of your web server (where you launch the script from)</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC25" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//so keep this in mind - this is not a production script but a development teaching tool.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC26" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC27" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//Tell the server to listen for incoming connections</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC28" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">app</span>.<span class="pl-en">listen</span>( gameport );</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC29" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC30" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//Log something so we know that it succeeded.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC31" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\t</span> :: Express :: Listening on port <span class="pl-pds">'</span></span> <span class="pl-k">+</span> gameport );</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC32" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC33" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//By default, we forward the / path to index.html automatically.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC34" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">app</span>.<span class="pl-en">get</span>( <span class="pl-s"><span class="pl-pds">'</span>/<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>( <span class="pl-smi">req</span>, <span class="pl-smi">res</span> ){ </td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC35" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">res</span>.<span class="pl-en">sendfile</span>( <span class="pl-c1">__dirname</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>/simplest.html<span class="pl-pds">'</span></span> );</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L36" class="blob-num js-line-number" data-line-number="36"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC36" class="blob-code blob-code-inner js-file-line">    });</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L37" class="blob-num js-line-number" data-line-number="37"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC37" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L38" class="blob-num js-line-number" data-line-number="38"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC38" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L39" class="blob-num js-line-number" data-line-number="39"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC39" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//This handler will listen for requests on /*, any file from the root of our server.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L40" class="blob-num js-line-number" data-line-number="40"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC40" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//See expressjs documentation for more info on routing.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L41" class="blob-num js-line-number" data-line-number="41"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC41" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L42" class="blob-num js-line-number" data-line-number="42"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC42" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">app</span>.<span class="pl-en">get</span>( <span class="pl-s"><span class="pl-pds">'</span>/*<span class="pl-pds">'</span></span> , <span class="pl-k">function</span>( <span class="pl-smi">req</span>, <span class="pl-smi">res</span>, <span class="pl-smi">next</span> ) {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L43" class="blob-num js-line-number" data-line-number="43"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC43" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L44" class="blob-num js-line-number" data-line-number="44"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC44" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//This is the current file they have requested</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L45" class="blob-num js-line-number" data-line-number="45"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC45" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> file <span class="pl-k">=</span> <span class="pl-smi">req</span>.<span class="pl-smi">params</span>[<span class="pl-c1">0</span>]; </td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L46" class="blob-num js-line-number" data-line-number="46"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC46" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L47" class="blob-num js-line-number" data-line-number="47"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC47" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//For debugging, we can track what files are requested.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L48" class="blob-num js-line-number" data-line-number="48"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC48" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span>(verbose) <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\t</span> :: Express :: file requested : <span class="pl-pds">'</span></span> <span class="pl-k">+</span> file);</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L49" class="blob-num js-line-number" data-line-number="49"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC49" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L50" class="blob-num js-line-number" data-line-number="50"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC50" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//Send the requesting client the file.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L51" class="blob-num js-line-number" data-line-number="51"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC51" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">res</span>.<span class="pl-en">sendfile</span>( <span class="pl-c1">__dirname</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>/<span class="pl-pds">'</span></span> <span class="pl-k">+</span> file );</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L52" class="blob-num js-line-number" data-line-number="52"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC52" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-00-express-js-L53" class="blob-num js-line-number" data-line-number="53"></td>
+        <td id="file-multi-player-html5-games-00-express-js-LC53" class="blob-code blob-code-inner js-file-line">    }); <span class="pl-c">//app.get *</span></td>
+      </tr>
+</tbody></table>
+
+  </div>
+
+  </div>
+  
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/underscorediscovery/2216646/raw/ddaa3b8fc121505d19c839260436c20e4743e885/multi-player-html5-games-00-express.js" style="float:right">view raw</a>
+        <a href="https://gist.github.com/underscorediscovery/2216646#file-multi-player-html5-games-00-express-js">multi-player-html5-games-00-express.js</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+
+<h3 id="socketio-adding-the-real-time-component">Socket.io, adding the real time component</h3>
+
+<p>Now we add the code for the socket.io part of the node.js server. It goes in the same
+file as the Express code, just below it as shown in the gist. The server will attach itself to Express so that it may serve the client files when requested. We do not handle any sessions in this example specifically, but you can learn about using those from this site: <a href="http://www.danielbaulig.de/socket-ioexpress/">http://www.danielbaulig.de/socket-ioexpress/</a>.</p>
+
+<script src="./Real Time Multiplayer in HTML5 - Build New Games_files/2216646(1).js"></script><link rel="stylesheet" href="./Real Time Multiplayer in HTML5 - Build New Games_files/gist-embed-bb1ffee40facc2473eb18927ac572162447f6c79d0269cce93b52f9066a5da11.css"><div id="gist2216646" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-multi-player-html5-games-01-socket-io-server-js" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-javascript">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c">/* Socket.IO server set up. */</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//Express and socket.io can work together to serve the socket.io client files for you.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//This way, when the client requests '/socket.io/' files, socket.io determines what the client needs.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC5" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC6" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//Create a socket.io instance using our express server</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC7" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">var</span> sio <span class="pl-k">=</span> <span class="pl-smi">io</span>.<span class="pl-en">listen</span>(app);</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC8" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC9" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//Configure the socket.io connection settings. </span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC10" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//See http://socket.io/</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC11" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">sio</span>.<span class="pl-en">configure</span>(<span class="pl-k">function</span> (){</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC12" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC13" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">sio</span>.<span class="pl-en">set</span>(<span class="pl-s"><span class="pl-pds">'</span>log level<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>);</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC14" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC15" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">sio</span>.<span class="pl-en">set</span>(<span class="pl-s"><span class="pl-pds">'</span>authorization<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">handshakeData</span>, <span class="pl-smi">callback</span>) {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC16" class="blob-code blob-code-inner js-file-line">          <span class="pl-en">callback</span>(<span class="pl-c1">null</span>, <span class="pl-c1">true</span>); <span class="pl-c">// error first callback style </span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC17" class="blob-code blob-code-inner js-file-line">        });</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC18" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC19" class="blob-code blob-code-inner js-file-line">    });</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC20" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC21" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//Socket.io will call this function when a client connects, </span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC22" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//So we can send that client a unique ID we use so we can </span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC23" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//maintain the list of players.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC24" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">sio</span>.<span class="pl-smi">sockets</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>connection<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">client</span>) {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC25" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC26" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//Generate a new UUID, looks something like </span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC27" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//5b2ca132-64bd-4513-99da-90e838ca47d1</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC28" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//and store this on their socket/connection</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC29" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">client</span>.<span class="pl-smi">userid</span> <span class="pl-k">=</span> <span class="pl-en">UUID</span>();</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC30" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC31" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//tell the player they connected, giving them their id</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC32" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">client</span>.<span class="pl-en">emit</span>(<span class="pl-s"><span class="pl-pds">'</span>onconnected<span class="pl-pds">'</span></span>, { id<span class="pl-k">:</span> <span class="pl-smi">client</span>.<span class="pl-smi">userid</span> } );</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC33" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC34" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//Useful to know when someone connects</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC35" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\t</span> socket.io:: player <span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-smi">client</span>.<span class="pl-smi">userid</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> connected<span class="pl-pds">'</span></span>);</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L36" class="blob-num js-line-number" data-line-number="36"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC36" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L37" class="blob-num js-line-number" data-line-number="37"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC37" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//When this client disconnects</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L38" class="blob-num js-line-number" data-line-number="38"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC38" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">client</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>disconnect<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> () {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L39" class="blob-num js-line-number" data-line-number="39"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC39" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L40" class="blob-num js-line-number" data-line-number="40"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC40" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//Useful to know when someone disconnects</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L41" class="blob-num js-line-number" data-line-number="41"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC41" class="blob-code blob-code-inner js-file-line">            <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\t</span> socket.io:: client disconnected <span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-smi">client</span>.<span class="pl-smi">userid</span> );</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L42" class="blob-num js-line-number" data-line-number="42"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC42" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L43" class="blob-num js-line-number" data-line-number="43"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC43" class="blob-code blob-code-inner js-file-line">        }); <span class="pl-c">//client.on disconnect</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L44" class="blob-num js-line-number" data-line-number="44"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC44" class="blob-code blob-code-inner js-file-line">     </td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-L45" class="blob-num js-line-number" data-line-number="45"></td>
+        <td id="file-multi-player-html5-games-01-socket-io-server-js-LC45" class="blob-code blob-code-inner js-file-line">    }); <span class="pl-c">//sio.sockets.on connection</span></td>
+      </tr>
+</tbody></table>
+
+  </div>
+
+  </div>
+  
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/underscorediscovery/2216646/raw/ddaa3b8fc121505d19c839260436c20e4743e885/multi-player-html5-games-01-socket-io-server.js" style="float:right">view raw</a>
+        <a href="https://gist.github.com/underscorediscovery/2216646#file-multi-player-html5-games-01-socket-io-server-js">multi-player-html5-games-01-socket-io-server.js</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+
+<h3 id="indexhtml-connecting-a-client-to-the-server">Index.html, connecting a client to the server</h3>
+
+<p>The client side needs very little code to be able to connect to the server. As we go further, it becomes more intwined, but this is all that is required to connect to the server and send or receive data.</p>
+
+<script src="./Real Time Multiplayer in HTML5 - Build New Games_files/2216646(2).js"></script><link rel="stylesheet" href="./Real Time Multiplayer in HTML5 - Build New Games_files/gist-embed-bb1ffee40facc2473eb18927ac572162447f6c79d0269cce93b52f9066a5da11.css"><div id="gist2216646" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-multi-player-html5-games-02-socket-io-client-html" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-html">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC1" class="blob-code blob-code-inner js-file-line">&lt;!DOCTYPE html&gt;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC2" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">html</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC3" class="blob-code blob-code-inner js-file-line">	&lt;<span class="pl-ent">head</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC4" class="blob-code blob-code-inner js-file-line">		&lt;<span class="pl-ent">title</span>&gt; Real time multi-player games with HTML5&lt;/<span class="pl-ent">title</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">		&lt;<span class="pl-ent">style</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/css<span class="pl-pds">"</span></span>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">			<span class="pl-ent">html</span> , <span class="pl-ent">body</span> {</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">				<span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">#212121</span>; </span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">				<span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#fff</span>; </span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC9" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">				<span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">0</span>; </span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC10" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">				<span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">0</span>;</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC11" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">			}</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC12" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">			<span class="pl-e">#canvas</span> {</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC13" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">				<span class="pl-c1"><span class="pl-c1">position</span></span>: <span class="pl-c1">absolute</span>;</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC14" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">				<span class="pl-c1"><span class="pl-c1">left</span></span>: <span class="pl-c1">0</span>; <span class="pl-c1"><span class="pl-c1">right</span></span>: <span class="pl-c1">0</span>; <span class="pl-c1"><span class="pl-c1">top</span></span>: <span class="pl-c1">0</span>; <span class="pl-c1"><span class="pl-c1">bottom</span></span>: <span class="pl-c1">0</span>; </span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC15" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">				<span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">auto</span>;</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC16" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">			}</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC17" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">		&lt;/<span class="pl-ent">style</span>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC18" class="blob-code blob-code-inner js-file-line">	 	</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC19" class="blob-code blob-code-inner js-file-line">		 	<span class="pl-c">&lt;!-- Notice the URL, this is handled by socket.io on the server automatically, via express --&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC20" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">		&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/socket.io/socket.io.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC21" class="blob-code blob-code-inner js-file-line">		</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC22" class="blob-code blob-code-inner js-file-line">			<span class="pl-c">&lt;!-- This will create a connection to socket.io, and print the user serverid that we sent from the server side. --&gt;</span> </td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC23" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">		&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC24" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"></span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC25" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">				<span class="pl-c">//This is all that needs</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC26" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">			<span class="pl-k">var</span> socket <span class="pl-k">=</span> <span class="pl-smi">io</span>.<span class="pl-en">connect</span>(<span class="pl-s"><span class="pl-pds">'</span>/<span class="pl-pds">'</span></span>);</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC27" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"></span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC28" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">				<span class="pl-c">//Now we can listen for that event</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC29" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">			<span class="pl-smi">socket</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>onconnected<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>( <span class="pl-smi">data</span> ) {</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC30" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"></span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC31" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">					<span class="pl-c">//Note that the data is the object we sent from the server, as is. So we can assume its id exists. </span></span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC32" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">		  		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-s"><span class="pl-pds">'</span>Connected successfully to the socket.io server. My server side ID is <span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-smi">data</span>.<span class="pl-c1">id</span> );</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC33" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"></span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC34" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">		  	});</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC35" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"></span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L36" class="blob-num js-line-number" data-line-number="36"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC36" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">		&lt;/<span class="pl-ent">script</span>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L37" class="blob-num js-line-number" data-line-number="37"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC37" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L38" class="blob-num js-line-number" data-line-number="38"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC38" class="blob-code blob-code-inner js-file-line">	&lt;/<span class="pl-ent">head</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L39" class="blob-num js-line-number" data-line-number="39"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC39" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L40" class="blob-num js-line-number" data-line-number="40"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC40" class="blob-code blob-code-inner js-file-line">	&lt;<span class="pl-ent">body</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L41" class="blob-num js-line-number" data-line-number="41"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC41" class="blob-code blob-code-inner js-file-line">		&lt;<span class="pl-ent">canvas</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>canvas<span class="pl-pds">"</span></span>&gt; &lt;/<span class="pl-ent">canvas</span>&gt;	</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L42" class="blob-num js-line-number" data-line-number="42"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC42" class="blob-code blob-code-inner js-file-line">	&lt;/<span class="pl-ent">body</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-L43" class="blob-num js-line-number" data-line-number="43"></td>
+        <td id="file-multi-player-html5-games-02-socket-io-client-html-LC43" class="blob-code blob-code-inner js-file-line">&lt;/<span class="pl-ent">html</span>&gt;</td>
+      </tr>
+</tbody></table>
+
+  </div>
+
+  </div>
+  
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/underscorediscovery/2216646/raw/ddaa3b8fc121505d19c839260436c20e4743e885/multi-player-html5-games-02-socket-io-client.html" style="float:right">view raw</a>
+        <a href="https://gist.github.com/underscorediscovery/2216646#file-multi-player-html5-games-02-socket-io-client-html">multi-player-html5-games-02-socket-io-client.html</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+
+<h2 id="getting-into-the-gameplay">Getting into the gameplay</h2>
+
+<p>What we need now is a simple interactive example for this to tie into, to get our feet wet. We are going to have two blocks running around in the same space. There is a lot of code and logic that goes into creating something that runs smoothly over the internet, and any game related code getting in the way is not as useful to this article. Instead, we focus on the multiplayer and use a simple example to demonstrate.</p>
+
+<h3 id="some-notes-on-developing-real-time-games">Some notes on developing real time games</h3>
+
+<p>Not all developers make games. There are some things that are new to developers
+that are entering the world of games that should be covered briefly.</p>
+
+<h3 id="frame-rate-independence">Frame rate independence</h3>
+
+<p>When a block travels across the screen, it can be a simple line of code. <code>block.position.x
++= 1;</code> This <code>1</code> here, what unit is that measured in? Actually, this is one pixel - but it is moving 1
+pixel per frame. Each time the loop runs, we move one pixel. That is - at 30 frames per second, it moves 30 pixels. At 60 frames per second, it moves 60 pixels. This is really bad for games, because hardware and performance can vary from one device or computer to another. Even between different browsers, this
+problem can be a huge difference. One player reaches the wall, the other barely moves at all.</p>
+
+<p>In order to ensure that the block moves the same distance over the same amount of time, the
+concept of <code>delta time</code> is used. This value is the milliseconds per frame (mspf), which is measured while updating your game. It is how long one update takes. By taking the time at the start of your loop, and the time at the end of the loop, you can work out how long the update has taken.</p>
+
+<p>At 30 frames per second (1/30) the delta is about 0.033s. One frame, every 33.3 ms. At 60 frames per second (1/60) the delta is about 0.016 or 16.66 ms per frame. So lets say that the ball is moving at 1 pixel per frame. To solve the problem of frame rate dependence, we multiply any change in position by the mspf value, balancing out the time, making the distance always the same.</p>
+
+<p><img src="./Real Time Multiplayer in HTML5 - Build New Games_files/deltatime.png" alt="Frame rate independence"></p>
+
+<p>Our example calculation becomes <code>ball.position.x += (1 * deltatime);</code>. With bigger delta (slower frame rate) the ball moves more pixels - reaching the destination at the same time as at
+a smaller delta (higher frame rate). This gives us concrete units that will act the same at
+any render speed. This is critical for animations, movements and pretty much any value that changes over time: they all should be scaled to the mspf.</p>
+
+<h3 id="planning-for-change">Planning for change</h3>
+
+<p>Games are often a dynamic thing: they require tweaking and changing of many values to feel good. Iteration is a big part of getting this right. This is common sense for most programmers, but always try and design your code so that you have as many values and variables as possible to tweak. Then expose them in a really easy to use place, so you can constantly refine how the game feels and how it works without much digging and effort. Try and bring your iteration time down as much as possible.</p>
+
+<p>In the demo accompanying this article, we have exposed our values via <a href="http://workshop.chromeexperiments.com/examples/gui/#1--Basic-Usage">Dat.GUI</a> so that you can change and interact with the demo in real time, and feel the effect of the changes as you make them.</p>
+
+<h2 id="multiplayer-games-in-real-time">Multiplayer games in real time</h2>
+
+<p>Games are a difficult thing to make. Getting the game play to feel good, physics to be smooth,
+collisions to be correct and controls to feel tight - all these things take hard work already. Adding a multiplayer component makes this far more complex, as there is now a server involved. Players need
+to be informed of other players’ actions but there is a network delay.</p>
+
+<h3 id="networking-on-a-high-level-a-simple-lobby">Networking on a high level, a simple lobby</h3>
+
+<p>The way we will approach networking our game example is fairly straightforward. Our game in this demo can only have two players in it, for simplicity. In our demo, a client connects to the server, then the server either gives them an existing game to join, or creates a game for someone else to join. Then the game is added to the list of games on the server to update, and the clients update their game on their end. This is illustrated below; it works like a very simple lobby system.</p>
+
+<p><img src="./Real Time Multiplayer in HTML5 - Build New Games_files/network1.png" alt="Simple multiplayer lobby"></p>
+
+<h2 id="networking-and-the-game-loops">Networking and the game loops</h2>
+<p>When it comes to a real time game, we want to run the game logic itself on the server AND the client. This is due to the fact that the server needs to be the authority on the state of the game at all times, but the client needs to run the game locally too. Each frame on the server, input from the network will be processed and applied to players, and that change is sent to the other players at a fixed rate. On the client, input will be collected and sent to the server, and positions can be updated while waiting for the messages to come back from the server (client prediction).</p>
+
+<p>The approach we will be implementing works as follows:</p>
+
+<ul>
+  <li>Client presses the right key, client moves immediately right</li>
+  <li>Server receives the input message and stores it for the next update</li>
+  <li>The next server update, the player input is applied, moving him right on the server state</li>
+  <li>All changes in state are sent to all clients</li>
+  <li>Client receives the message immediately setting clients positions (authoritative)</li>
+  <li>Client can smoothly correct mistakes in prediction from the first step</li>
+</ul>
+
+<h3 id="the-game-server-set-up">The game server set up</h3>
+<p>On the server, we have two updates running. The one update is run at a high frequency, which updates the physics and state of the game. We will call this the physics update loop, which is run every 15ms (about 66 updates per second). The second update we can call the server update loop, which is run at a slower rate, every 45ms (about 22 updates per second). In the server update loop we send the state of the server to all clients. Most of what we will implement is based on the theory presented in the <a href="https://developer.valvesoftware.com/wiki/Source_Multiplayer_Networking">networking of the Source Engine from Valve Software</a>.</p>
+
+<p>The server update loops looks like this: :</p>
+
+<p><img src="./Real Time Multiplayer in HTML5 - Build New Games_files/network2.png" alt="Server update loops"></p>
+
+<h3 id="the-server-physics-loop-15ms">The server physics loop (15ms)</h3>
+
+<p>Don’t let the term physics scare you, in our example it is extremely simple linear motion. We take the input from the clients, and we move them according to what they pushed. If they press left, you move them left. When we add client side prediction, we need to also tell the clients which of their inputs we had processed last. So how does our server update the physics?</p>
+
+<ul>
+  <li>Process input that we stored from the network</li>
+  <li>Work out the direction they intended to move based on input stored</li>
+  <li>Apply the changes of this direction to the player position</li>
+  <li>Store the last processed input number</li>
+  <li>Clear any inputs that we have stored</li>
+</ul>
+
+<h3 id="the-server-update-loop-45ms">The server update loop (45ms)</h3>
+
+<p>The update loop sends the state of the server to all clients. This varies per game of course, and in our example the state consists of player positions, the inputs of the player we have already processed (the last processed input number), and the local server time.</p>
+
+<p>What you send in the state update is up to you, and often more than one server update loop can be employed to lower the amount of traffic used. A simple example would be a day/night cycle. If the cycle was changing at a much lower rate than everything else, you can send the state of the sun every 5 seconds instead of every 45 ms.</p>
+
+<h3 id="the-client-set-up-and-update-loops">The client set up and update loops</h3>
+
+<p>On the client we also run multiple loops, one for the physics/game at 15ms again, like the server. The second is the regular update loop, but instead this one runs at 60fps (preferably), or as fast as the client can run the game. In HTML5 we usually rely on RequestAnimationFrame to handle this update, calling whenever the browser updates the window. This update loop is detailed below, and is quite standard:</p>
+
+<ul>
+  <li>Clear canvas</li>
+  <li>Draw info/status</li>
+  <li>Handle input (sends input messages to server)</li>
+  <li>Update position (using client prediction)</li>
+  <li>Move the other clients based on the server position (interpolation)</li>
+  <li>Draw players on canvas</li>
+</ul>
+
+<h3 id="the-client-physics-loop">The client physics loop</h3>
+
+<p>The important thing about the client physics loop has to do with keeping the client positions in sync with what the server has decided our position to be. This means the physics has to match the server when it decides how far to move us, and this is why the physics is updated at a fixed rate. Both the server and client physics should arrive at the same conclusion, given the same inputs. If you have pressed right twice, the results should be almost identical to what the server will calculate your position to be. This is what makes client prediction possible when attempting to mask the delay in a network and the clients.</p>
+
+<h2 id="important-networking-concepts">Important Networking Concepts</h2>
+
+<h3 id="client-prediction">Client prediction</h3>
+
+<p>We have mentioned this before now, so lets take a look at what exactly it entails. In a naive approach to networking, you might try the following model:</p>
+
+<ul>
+  <li>Client presses the right key, tell the server</li>
+  <li>Message arrives at server sometime in the future ( 200ms latency )</li>
+  <li>Server sends back the new position to the client</li>
+  <li>Message arrives at the client ( 200ms latency )</li>
+  <li>Client updates their position 400ms+ later.</li>
+</ul>
+
+<p>This approach might work well over LAN connections where the latency is really low, but when connecting players to a server via the Internet, latency can be anywhere from 30ms to 800ms - rendering the game unplayable because of the delay. When you push a key the response is so badly delayed that it will not be a very good game to play at all. But how do we solve this?</p>
+
+<p>Client prediction is the solution, and simply means acting on input immediately, predicting what the server will calculate as well. We apply input with the assumption that your results and the server results (whenever they arrive) will be the same. When a client presses the right key twice, and ends up at <code>x = 2</code>, the server will arrive at the same conclusion and tell you 600ms later - you are still in the correct place.</p>
+
+<p>This is important for immediate feedback on the client side, and even though updates are running via a server, the client positions should match up.</p>
+
+<h3 id="interpolation-of-other-client-positions">Interpolation of other client positions</h3>
+
+<p>Now all we need to update is the other client positions, as they arrive from the network. Again, a naive approach would be to simply set their positions as soon as the message arrives from the server but this leads to extremely jerky rendering of the other clients.</p>
+
+<p>The solution is to store the positions we get from the server and interpolate between them. This means that we draw them a few frames behind the server, but it allows for very smooth updates of all other client positions. In our demo, based on the Source Engine article listed above, we draw the other clients 100ms behind the actual server positions.</p>
+
+<p>All of this is implemented in the demo and elaborated on below in code form, but for more information and very good diagrams on the topic, Gabriel Gambetta did an excellent <a href="http://www.gabrielgambetta.com/?p=11">three</a> <a href="http://www.gabrielgambetta.com/?p=22">part</a> <a href="http://www.gabrielgambetta.com/?p=63">series</a> on the concepts presented - including client prediction, interpolation and the reasons why these work best for real time games. Most important for our example is that we store the input sequence of each input the player gives us. We use this to track where the server is in our list of inputs, and we re-process input that the server has not yet received.</p>
+
+<h2 id="understanding-the-demo-code">Understanding the demo code</h2>
+
+<p>The demo code presented at the end of the article features a working set of the topics discussed, including some debug controls to tweak and see changes and differences in approaches. The demo looks something like this : 
+<img src="./Real Time Multiplayer in HTML5 - Build New Games_files/demo.png" alt="The demo"></p>
+
+<p>Now that we have seen the theory of the example, we can start to see how the code comes together.</p>
+
+<h3 id="how-the-code-is-structured">How the code is structured</h3>
+
+<p>The code in the demo contains four files, each with different portions of the example. The files contain the following logic:</p>
+
+<ul>
+  <li><strong><code>client.js</code></strong> The logic for the game client setup in the browser.</li>
+  <li><strong><code>app.js</code></strong> The server side app to run on node. This handles all the node/express/socket.io set up and code.</li>
+  <li><strong><code>game.server.js</code></strong> The logic for the game server (‘lobby’).</li>
+  <li><strong><code>game.core.js</code></strong> The logic for the game play itself, both server and client.</li>
+</ul>
+
+<h4 id="core-game-play-code">Core game play code</h4>
+
+<p>The code inside of <code>game.core.js</code> is the important part of our example. The code is shared between both server (running on node.js) and the client (running in the browser). This allows the code to use the exact same functions and algorithms to process input, synchronise movement, and share data structures.</p>
+
+<h4 id="classes-of-the-core-game-play">Classes of the core game play</h4>
+
+<p>The <code>game.core.js</code> file hosts three classes, described in detail below.</p>
+
+<h4 id="the-gamecore-class">The <code>game_core</code> class</h4>
+
+<p>This class is the driving factor for the whole game state. It runs the update functions, it handles the outputs and inputs of the game and manages the game as it changes. The game core can be described as the game <strong>world</strong>. It contains two players, a boundary, and it runs the world logic. It makes sure the physics simulations are started up, it makes sure they run on time and it handles the logic of the players inputs.</p>
+
+<p>The game world is where multiplayer happens. We want the game world to exist in three places (for this demo). We want to run a copy of the game world on each client, and one on the server, per game. This is what the lobby does in <code>game.server.js</code> - it creates a world for each set of players that join.</p>
+
+<p>All the code is named according to the purpose served. If the function name starts with <code>client_</code>, this code will never be called on the server side. If the function begins with the term <code>server_</code>, similarly this code will not run on the client but the server only. All other functions on the <code>game_core</code> class is directly related to the game state that gets shared between server and client.</p>
+
+<h4 id="the-gameplayer-class">The <code>game_player</code> class</h4>
+
+<p>The player code is probably a lot lighter than you might have expected, but the player class simply maintains it’s own spatial properties and knows how to draw itself (if required, like on the browser client). On the server, of course, the draw function is just never called.</p>
+
+<h4 id="an-example-function-that-is-shared-between-the-client-and-server">An example function that is shared between the client and server</h4>
+
+<script src="./Real Time Multiplayer in HTML5 - Build New Games_files/2216646(3).js"></script><link rel="stylesheet" href="./Real Time Multiplayer in HTML5 - Build New Games_files/gist-embed-bb1ffee40facc2473eb18927ac572162447f6c79d0269cce93b52f9066a5da11.css"><div id="gist2216646" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-multi-player-html5-games-03-example-shared-function-js" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-javascript">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c">/*</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-c">    Shared between server and client.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-c">    In this example, `item` is always of type game_player.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-c">*/</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-smi">game_core</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">check_collision</span> <span class="pl-k">=</span> <span class="pl-k">function</span>( <span class="pl-smi">item</span> ) {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC6" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC7" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//Left wall.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC8" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span>(<span class="pl-smi">item</span>.<span class="pl-smi">pos</span>.<span class="pl-c1">x</span> <span class="pl-k">&lt;=</span> <span class="pl-smi">item</span>.<span class="pl-smi">pos_limits</span>.<span class="pl-smi">x_min</span>) {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC9" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">item</span>.<span class="pl-smi">pos</span>.<span class="pl-c1">x</span> <span class="pl-k">=</span> <span class="pl-smi">item</span>.<span class="pl-smi">pos_limits</span>.<span class="pl-smi">x_min</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC10" class="blob-code blob-code-inner js-file-line">    }</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC11" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC12" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//Right wall</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC13" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span>(<span class="pl-smi">item</span>.<span class="pl-smi">pos</span>.<span class="pl-c1">x</span> <span class="pl-k">&gt;=</span> <span class="pl-smi">item</span>.<span class="pl-smi">pos_limits</span>.<span class="pl-smi">x_max</span> ) {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC14" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">item</span>.<span class="pl-smi">pos</span>.<span class="pl-c1">x</span> <span class="pl-k">=</span> <span class="pl-smi">item</span>.<span class="pl-smi">pos_limits</span>.<span class="pl-smi">x_max</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC15" class="blob-code blob-code-inner js-file-line">    }</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC16" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC17" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//Roof wall.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC18" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span>(<span class="pl-smi">item</span>.<span class="pl-smi">pos</span>.<span class="pl-c1">y</span> <span class="pl-k">&lt;=</span> <span class="pl-smi">item</span>.<span class="pl-smi">pos_limits</span>.<span class="pl-smi">y_min</span>) {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC19" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">item</span>.<span class="pl-smi">pos</span>.<span class="pl-c1">y</span> <span class="pl-k">=</span> <span class="pl-smi">item</span>.<span class="pl-smi">pos_limits</span>.<span class="pl-smi">y_min</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC20" class="blob-code blob-code-inner js-file-line">    }</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC21" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC22" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//Floor wall</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC23" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span>(<span class="pl-smi">item</span>.<span class="pl-smi">pos</span>.<span class="pl-c1">y</span> <span class="pl-k">&gt;=</span> <span class="pl-smi">item</span>.<span class="pl-smi">pos_limits</span>.<span class="pl-smi">y_max</span> ) {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC24" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">item</span>.<span class="pl-smi">pos</span>.<span class="pl-c1">y</span> <span class="pl-k">=</span> <span class="pl-smi">item</span>.<span class="pl-smi">pos_limits</span>.<span class="pl-smi">y_max</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC25" class="blob-code blob-code-inner js-file-line">    }</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC26" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC27" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//Fixed point helps be more deterministic</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC28" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">item</span>.<span class="pl-smi">pos</span>.<span class="pl-c1">x</span> <span class="pl-k">=</span> <span class="pl-smi">item</span>.<span class="pl-smi">pos</span>.<span class="pl-c1">x</span>.<span class="pl-c1">fixed</span>(<span class="pl-c1">4</span>);</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC29" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">item</span>.<span class="pl-smi">pos</span>.<span class="pl-c1">y</span> <span class="pl-k">=</span> <span class="pl-smi">item</span>.<span class="pl-smi">pos</span>.<span class="pl-c1">y</span>.<span class="pl-c1">fixed</span>(<span class="pl-c1">4</span>);</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC30" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-multi-player-html5-games-03-example-shared-function-js-LC31" class="blob-code blob-code-inner js-file-line">}; <span class="pl-c">//game_core.check_collision</span></td>
+      </tr>
+</tbody></table>
+
+  </div>
+
+  </div>
+  
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/underscorediscovery/2216646/raw/ddaa3b8fc121505d19c839260436c20e4743e885/multi-player-html5-games-03-example-shared-function.js" style="float:right">view raw</a>
+        <a href="https://gist.github.com/underscorediscovery/2216646#file-multi-player-html5-games-03-example-shared-function-js">multi-player-html5-games-03-example-shared-function.js</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+
+<h2 id="important-functions-in-the-multiplayer-code">Important functions in the multiplayer code</h2>
+
+<p>Some of the functions are more important to multiplayer than others. Let’s look at the important concepts outlined in code, to see how the flow works. The code examples are sometimes simplified to demonstrate the key concept.</p>
+
+<h3 id="entity-interpolation-other-clients">Entity interpolation (other clients)</h3>
+
+<p>The interpolation/smoothing of the other clients. This is handled in this fashion:</p>
+
+<ul>
+  <li>Store the network messages from the server about other clients, for at least 100ms</li>
+  <li>Interpolate between a last known position, and a newer position in time (100ms behind the server time)</li>
+  <li>Draw the interpolated clients at the interpolated position.</li>
+</ul>
+
+<p>The way we achieve this is as follows :</p>
+
+<script src="./Real Time Multiplayer in HTML5 - Build New Games_files/2216646(4).js"></script><link rel="stylesheet" href="./Real Time Multiplayer in HTML5 - Build New Games_files/gist-embed-bb1ffee40facc2473eb18927ac572162447f6c79d0269cce93b52f9066a5da11.css"><div id="gist2216646" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-multi-player-html5-games-04-linear-interpolation-logic-js" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-javascript">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//We store server messages so that we can interpolate the client positions of other clients</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//between a past and less past point. This is offset from the server time by net_offset ms.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC3" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-en">client_onserverupdate_recieved</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">data</span>){</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC5" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//....</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC7" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC8" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//Store the server time (this is offset by the latency in the network, by the time we get it)</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC9" class="blob-code blob-code-inner js-file-line">        <span class="pl-v">this</span>.<span class="pl-smi">server_time</span> <span class="pl-k">=</span> <span class="pl-smi">data</span>.<span class="pl-smi">t</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC10" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//Update our local offset time from the last server update</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC11" class="blob-code blob-code-inner js-file-line">        <span class="pl-v">this</span>.<span class="pl-smi">client_time</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">server_time</span> <span class="pl-k">-</span> (<span class="pl-v">this</span>.<span class="pl-smi">net_offset</span><span class="pl-k">/</span><span class="pl-c1">1000</span>);</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC12" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC13" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//....</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC14" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC15" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//Cache the data from the server,</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC16" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//and then play the timeline</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC17" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//back to the player with a small delay (net_offset), allowing</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC18" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//interpolation between the points.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC19" class="blob-code blob-code-inner js-file-line">        <span class="pl-v">this</span>.<span class="pl-smi">server_updates</span>.<span class="pl-c1">push</span>(data);</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC20" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC21" class="blob-code blob-code-inner js-file-line">			<span class="pl-c">//we limit the buffer, roughly in seconds</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC22" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">// 60fps * buffer seconds = number of samples in the array</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC23" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span>(<span class="pl-v">this</span>.<span class="pl-smi">server_updates</span>.<span class="pl-c1">length</span> <span class="pl-k">&gt;=</span> ( <span class="pl-c1">60</span><span class="pl-k">*</span><span class="pl-v">this</span>.<span class="pl-smi">buffer_size</span> )) {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC24" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">this</span>.<span class="pl-smi">server_updates</span>.<span class="pl-c1">splice</span>(<span class="pl-c1">0</span>,<span class="pl-c1">1</span>);</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC25" class="blob-code blob-code-inner js-file-line">        }</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC26" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC27" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//....</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC28" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC29" class="blob-code blob-code-inner js-file-line">} <span class="pl-c">//onserverupdate</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC30" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC31" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC32" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//Before we draw the other clients, we interpolate them based on where they are in the timeline (client_time)</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC33" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC34" class="blob-code blob-code-inner js-file-line"><span class="pl-en">client_process_net_updates</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC35" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L36" class="blob-num js-line-number" data-line-number="36"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC36" class="blob-code blob-code-inner js-file-line">	<span class="pl-c">//First : Find the position in the updates, on the timeline </span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L37" class="blob-num js-line-number" data-line-number="37"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC37" class="blob-code blob-code-inner js-file-line">	<span class="pl-c">//We call this current_time, then we find the past_pos and the target_pos using this,</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L38" class="blob-num js-line-number" data-line-number="38"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC38" class="blob-code blob-code-inner js-file-line">	<span class="pl-c">//searching throught the server_updates array for current_time in between 2 other times.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L39" class="blob-num js-line-number" data-line-number="39"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC39" class="blob-code blob-code-inner js-file-line">	<span class="pl-c">// Then :  other player position = lerp ( past_pos, target_pos, current_time );</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L40" class="blob-num js-line-number" data-line-number="40"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC40" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L41" class="blob-num js-line-number" data-line-number="41"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC41" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//....</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L42" class="blob-num js-line-number" data-line-number="42"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC42" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L43" class="blob-num js-line-number" data-line-number="43"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC43" class="blob-code blob-code-inner js-file-line">    	<span class="pl-c">//The other players positions in the timeline, behind and in front of current_time</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L44" class="blob-num js-line-number" data-line-number="44"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC44" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">var</span> other_target_pos <span class="pl-k">=</span> <span class="pl-smi">target</span>.<span class="pl-smi">pos</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L45" class="blob-num js-line-number" data-line-number="45"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC45" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">var</span> other_past_pos <span class="pl-k">=</span> <span class="pl-smi">previous</span>.<span class="pl-smi">pos</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L46" class="blob-num js-line-number" data-line-number="46"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC46" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L47" class="blob-num js-line-number" data-line-number="47"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC47" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//this is a simple lerp to the target from the previous point in the server_updates buffer</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L48" class="blob-num js-line-number" data-line-number="48"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC48" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//we store the destination position on the ghost first, so we smooth even further if we wanted</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L49" class="blob-num js-line-number" data-line-number="49"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC49" class="blob-code blob-code-inner js-file-line">    <span class="pl-v">this</span>.<span class="pl-smi">ghosts</span>.<span class="pl-smi">pos_other</span>.<span class="pl-smi">pos</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-en">v_lerp</span>( other_past_pos, other_target_pos, time_point );</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L50" class="blob-num js-line-number" data-line-number="50"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC50" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L51" class="blob-num js-line-number" data-line-number="51"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC51" class="blob-code blob-code-inner js-file-line">    	<span class="pl-c">//If applying additional smoothing,</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L52" class="blob-num js-line-number" data-line-number="52"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC52" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span>(<span class="pl-v">this</span>.<span class="pl-smi">client_smoothing</span>) {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L53" class="blob-num js-line-number" data-line-number="53"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC53" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L54" class="blob-num js-line-number" data-line-number="54"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC54" class="blob-code blob-code-inner js-file-line">    		<span class="pl-c">//Lerp from the existing position to the ghost position, based on a smoothing amount and physics delta time</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L55" class="blob-num js-line-number" data-line-number="55"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC55" class="blob-code blob-code-inner js-file-line">        <span class="pl-v">this</span>.<span class="pl-smi">players</span>.<span class="pl-smi">other</span>.<span class="pl-smi">pos</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-en">v_lerp</span>( <span class="pl-v">this</span>.<span class="pl-smi">players</span>.<span class="pl-smi">other</span>.<span class="pl-smi">pos</span>, <span class="pl-v">this</span>.<span class="pl-smi">ghosts</span>.<span class="pl-smi">pos_other</span>.<span class="pl-smi">pos</span>, <span class="pl-v">this</span>.<span class="pl-smi">_pdt</span><span class="pl-k">*</span><span class="pl-v">this</span>.<span class="pl-smi">client_smooth</span>);</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L56" class="blob-num js-line-number" data-line-number="56"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC56" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L57" class="blob-num js-line-number" data-line-number="57"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC57" class="blob-code blob-code-inner js-file-line">    } <span class="pl-k">else</span> {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L58" class="blob-num js-line-number" data-line-number="58"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC58" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L59" class="blob-num js-line-number" data-line-number="59"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC59" class="blob-code blob-code-inner js-file-line">    		<span class="pl-c">//No additional smoothing? Just apply the position</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L60" class="blob-num js-line-number" data-line-number="60"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC60" class="blob-code blob-code-inner js-file-line">        <span class="pl-v">this</span>.<span class="pl-smi">players</span>.<span class="pl-smi">other</span>.<span class="pl-smi">pos</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-en">pos</span>(<span class="pl-v">this</span>.<span class="pl-smi">ghosts</span>.<span class="pl-smi">pos_other</span>.<span class="pl-smi">pos</span>);</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L61" class="blob-num js-line-number" data-line-number="61"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC61" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L62" class="blob-num js-line-number" data-line-number="62"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC62" class="blob-code blob-code-inner js-file-line">    }</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L63" class="blob-num js-line-number" data-line-number="63"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC63" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L64" class="blob-num js-line-number" data-line-number="64"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC64" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//....</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-L65" class="blob-num js-line-number" data-line-number="65"></td>
+        <td id="file-multi-player-html5-games-04-linear-interpolation-logic-js-LC65" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+</tbody></table>
+
+  </div>
+
+  </div>
+  
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/underscorediscovery/2216646/raw/ddaa3b8fc121505d19c839260436c20e4743e885/multi-player-html5-games-04-linear-interpolation-logic.js" style="float:right">view raw</a>
+        <a href="https://gist.github.com/underscorediscovery/2216646#file-multi-player-html5-games-04-linear-interpolation-logic-js">multi-player-html5-games-04-linear-interpolation-logic.js</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+
+<h3 id="client-prediction-local-client">Client prediction (local client)</h3>
+
+<p>The prediction takes place in two places, when receiving server authoritative responses, and before drawing we process our input as it happens locally. The logic for this is:</p>
+
+<ul>
+  <li>Handle input from client</li>
+  <li>Store input and the time of input for smoothing later</li>
+  <li>Store the input sequence</li>
+  <li>Send the inputs and input sequence to the server</li>
+  <li>On confirmation from the server of last known input sequence,</li>
+  <li>Remove inputs that the server has already processed</li>
+  <li>Reapply inputs that still remain to be confirmed</li>
+</ul>
+
+<p>Here is the code simplified to show the input handling:</p>
+
+<script src="./Real Time Multiplayer in HTML5 - Build New Games_files/2216646(5).js"></script><link rel="stylesheet" href="./Real Time Multiplayer in HTML5 - Build New Games_files/gist-embed-bb1ffee40facc2473eb18927ac572162447f6c79d0269cce93b52f9066a5da11.css"><div id="gist2216646" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-multi-player-html5-games-05-client-prediction-logic-js" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-javascript">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC1" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-en">client_handle_input</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC3" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//....</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC5" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC6" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//Update what sequence we are on now</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC7" class="blob-code blob-code-inner js-file-line">        <span class="pl-v">this</span>.<span class="pl-smi">input_seq</span> <span class="pl-k">+=</span> <span class="pl-c1">1</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC8" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC9" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//Store the input state as a snapshot of what happened.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC10" class="blob-code blob-code-inner js-file-line">        <span class="pl-v">this</span>.<span class="pl-smi">players</span>.<span class="pl-c1">self</span>.<span class="pl-smi">inputs</span>.<span class="pl-c1">push</span>({</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC11" class="blob-code blob-code-inner js-file-line">            inputs <span class="pl-k">:</span> input,</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC12" class="blob-code blob-code-inner js-file-line">            time <span class="pl-k">:</span> <span class="pl-v">this</span>.<span class="pl-smi">local_time</span>.<span class="pl-c1">fixed</span>(<span class="pl-c1">3</span>),</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC13" class="blob-code blob-code-inner js-file-line">            seq <span class="pl-k">:</span> <span class="pl-v">this</span>.<span class="pl-smi">input_seq</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC14" class="blob-code blob-code-inner js-file-line">        });</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC15" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC16" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//Send the packet of information to the server.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC17" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//The input packets are labelled with an 'i' in front.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC18" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> server_packet <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>i.<span class="pl-pds">'</span></span>;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC19" class="blob-code blob-code-inner js-file-line">            server_packet <span class="pl-k">+=</span> <span class="pl-smi">input</span>.<span class="pl-c1">join</span>(<span class="pl-s"><span class="pl-pds">'</span>-<span class="pl-pds">'</span></span>) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>.<span class="pl-pds">'</span></span>;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC20" class="blob-code blob-code-inner js-file-line">            server_packet <span class="pl-k">+=</span> <span class="pl-v">this</span>.<span class="pl-smi">local_time</span>.<span class="pl-en">toFixed</span>(<span class="pl-c1">3</span>).<span class="pl-c1">replace</span>(<span class="pl-s"><span class="pl-pds">'</span>.<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>-<span class="pl-pds">'</span></span>) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>.<span class="pl-pds">'</span></span>;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC21" class="blob-code blob-code-inner js-file-line">            server_packet <span class="pl-k">+=</span> <span class="pl-v">this</span>.<span class="pl-smi">input_seq</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC22" class="blob-code blob-code-inner js-file-line">            </td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC23" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//Go</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC24" class="blob-code blob-code-inner js-file-line">        <span class="pl-v">this</span>.<span class="pl-smi">socket</span>.<span class="pl-c1">send</span>(  server_packet  );</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC25" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC26" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//....</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC27" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC28" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC29" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC30" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC31" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//In the update loop and when we recieve a message from the server</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC32" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//we immediately set the client position, as the server has final say,</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC33" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//but then we apply any input the server has not acknowledged yet, keeping our position consistent</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC34" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC35" class="blob-code blob-code-inner js-file-line"><span class="pl-en">client_process_net_prediction_correction</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L36" class="blob-num js-line-number" data-line-number="36"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC36" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//....</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L37" class="blob-num js-line-number" data-line-number="37"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC37" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L38" class="blob-num js-line-number" data-line-number="38"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC38" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//The most recent server update</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L39" class="blob-num js-line-number" data-line-number="39"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC39" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">var</span> latest_server_data <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">server_updates</span>[<span class="pl-v">this</span>.<span class="pl-smi">server_updates</span>.<span class="pl-c1">length</span><span class="pl-k">-</span><span class="pl-c1">1</span>];</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L40" class="blob-num js-line-number" data-line-number="40"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC40" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L41" class="blob-num js-line-number" data-line-number="41"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC41" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">var</span> my_last_input_on_server <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">players</span>.<span class="pl-c1">self</span>.<span class="pl-c1">host</span> <span class="pl-k">?</span> </td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L42" class="blob-num js-line-number" data-line-number="42"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC42" class="blob-code blob-code-inner js-file-line">                                    <span class="pl-smi">latest_server_data</span>.<span class="pl-smi">his</span> <span class="pl-k">:</span> </td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L43" class="blob-num js-line-number" data-line-number="43"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC43" class="blob-code blob-code-inner js-file-line">                                        <span class="pl-smi">latest_server_data</span>.<span class="pl-smi">cis</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L44" class="blob-num js-line-number" data-line-number="44"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC44" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L45" class="blob-num js-line-number" data-line-number="45"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC45" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">//If the server has sent us a 'host input sequence' or 'client input sequence' state </span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L46" class="blob-num js-line-number" data-line-number="46"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC46" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span>(my_last_input_on_server) {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L47" class="blob-num js-line-number" data-line-number="47"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC47" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L48" class="blob-num js-line-number" data-line-number="48"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC48" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//The last input sequence index in my local input list</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L49" class="blob-num js-line-number" data-line-number="49"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC49" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> lastinputseq_index <span class="pl-k">=</span> <span class="pl-k">-</span><span class="pl-c1">1</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L50" class="blob-num js-line-number" data-line-number="50"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC50" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L51" class="blob-num js-line-number" data-line-number="51"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC51" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//Find this input in the list, and store the index of that input</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L52" class="blob-num js-line-number" data-line-number="52"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC52" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">for</span>(<span class="pl-k">var</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> <span class="pl-v">this</span>.<span class="pl-smi">players</span>.<span class="pl-c1">self</span>.<span class="pl-smi">inputs</span>.<span class="pl-c1">length</span>; <span class="pl-k">++</span>i) {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L53" class="blob-num js-line-number" data-line-number="53"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC53" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L54" class="blob-num js-line-number" data-line-number="54"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC54" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span>(<span class="pl-v">this</span>.<span class="pl-smi">players</span>.<span class="pl-c1">self</span>.<span class="pl-smi">inputs</span>[i].<span class="pl-smi">seq</span> <span class="pl-k">==</span> my_last_input_on_server) {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L55" class="blob-num js-line-number" data-line-number="55"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC55" class="blob-code blob-code-inner js-file-line">                lastinputseq_index <span class="pl-k">=</span> i;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L56" class="blob-num js-line-number" data-line-number="56"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC56" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">break</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L57" class="blob-num js-line-number" data-line-number="57"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC57" class="blob-code blob-code-inner js-file-line">            }</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L58" class="blob-num js-line-number" data-line-number="58"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC58" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L59" class="blob-num js-line-number" data-line-number="59"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC59" class="blob-code blob-code-inner js-file-line">        }</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L60" class="blob-num js-line-number" data-line-number="60"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC60" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L61" class="blob-num js-line-number" data-line-number="61"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC61" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//Now we can crop the list of any updates we have already processed</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L62" class="blob-num js-line-number" data-line-number="62"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC62" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span>(lastinputseq_index <span class="pl-k">!=</span> <span class="pl-k">-</span><span class="pl-c1">1</span>) {</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L63" class="blob-num js-line-number" data-line-number="63"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC63" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L64" class="blob-num js-line-number" data-line-number="64"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC64" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//since we have now gotten an acknowledgement from the server that our inputs here have been accepted</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L65" class="blob-num js-line-number" data-line-number="65"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC65" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//and we now predict from the last known position instead of wherever we were.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L66" class="blob-num js-line-number" data-line-number="66"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC66" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L67" class="blob-num js-line-number" data-line-number="67"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC67" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//remove the rest of the inputs we have confirmed on the server</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L68" class="blob-num js-line-number" data-line-number="68"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC68" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">var</span> number_to_clear <span class="pl-k">=</span> <span class="pl-c1">Math</span>.<span class="pl-c1">abs</span>(lastinputseq_index <span class="pl-k">+</span> <span class="pl-c1">1</span>));</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L69" class="blob-num js-line-number" data-line-number="69"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC69" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//Then clear the past ones out</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L70" class="blob-num js-line-number" data-line-number="70"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC70" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">this</span>.<span class="pl-smi">players</span>.<span class="pl-c1">self</span>.<span class="pl-smi">inputs</span>.<span class="pl-c1">splice</span>(<span class="pl-c1">0</span>, number_to_clear);</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L71" class="blob-num js-line-number" data-line-number="71"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC71" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L72" class="blob-num js-line-number" data-line-number="72"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC72" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//The player is now located at the new server position, authoritive server</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L73" class="blob-num js-line-number" data-line-number="73"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC73" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">this</span>.<span class="pl-smi">players</span>.<span class="pl-c1">self</span>.<span class="pl-smi">cur_state</span>.<span class="pl-smi">pos</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-en">pos</span>(my_server_pos);</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L74" class="blob-num js-line-number" data-line-number="74"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC74" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">this</span>.<span class="pl-smi">players</span>.<span class="pl-c1">self</span>.<span class="pl-smi">last_input_seq</span> <span class="pl-k">=</span> lastinputseq_index;</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L75" class="blob-num js-line-number" data-line-number="75"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC75" class="blob-code blob-code-inner js-file-line">            </td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L76" class="blob-num js-line-number" data-line-number="76"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC76" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//Now we reapply all the inputs that we have locally that</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L77" class="blob-num js-line-number" data-line-number="77"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC77" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//the server hasn't yet confirmed. This will 'keep' our position the same,</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L78" class="blob-num js-line-number" data-line-number="78"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC78" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//but also confirm the server position at the same time.</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L79" class="blob-num js-line-number" data-line-number="79"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC79" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">this</span>.<span class="pl-en">client_update_physics</span>();</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L80" class="blob-num js-line-number" data-line-number="80"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC80" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">this</span>.<span class="pl-en">client_update_local_position</span>();</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L81" class="blob-num js-line-number" data-line-number="81"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC81" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L82" class="blob-num js-line-number" data-line-number="82"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC82" class="blob-code blob-code-inner js-file-line">        } <span class="pl-c">// if(lastinputseq_index != -1)</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L83" class="blob-num js-line-number" data-line-number="83"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC83" class="blob-code blob-code-inner js-file-line">    } <span class="pl-c">//if my_last_input_on_server</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L84" class="blob-num js-line-number" data-line-number="84"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC84" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L85" class="blob-num js-line-number" data-line-number="85"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC85" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L86" class="blob-num js-line-number" data-line-number="86"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC86" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//....</span></td>
+      </tr>
+      <tr>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-L87" class="blob-num js-line-number" data-line-number="87"></td>
+        <td id="file-multi-player-html5-games-05-client-prediction-logic-js-LC87" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+</tbody></table>
+
+  </div>
+
+  </div>
+  
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/underscorediscovery/2216646/raw/ddaa3b8fc121505d19c839260436c20e4743e885/multi-player-html5-games-05-client-prediction%20logic.js" style="float:right">view raw</a>
+        <a href="https://gist.github.com/underscorediscovery/2216646#file-multi-player-html5-games-05-client-prediction-logic-js">multi-player-html5-games-05-client-prediction logic.js</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+
+<h2 id="conclusion-and-demo-code-and-links">Conclusion and demo (code and links)</h2>
+
+<p>Multiplayer is a complex thing, and hopefully this simple example has given you an insight into a world of having friends play together in real time.</p>
+
+<h3 id="view-the-demo">View the demo</h3>
+
+<p><a href="http://underscorediscovery.aws.af.cm/?debug">http://underscorediscovery.aws.af.cm/?debug</a></p>
+
+<h3 id="get-the-code">Get the code</h3>
+
+<p><a href="https://github.com/FuzzYspo0N/realtime-multiplayer-in-html5">https://github.com/FuzzYspo0N/realtime-multiplayer-in-html5</a></p>
+
+<h3 id="know-your-enemy-further-discussion">Know your enemy (further discussion)</h3>
+
+<p>Keep in mind while you venture into the world of real time multiplayer - it is both a challenging
+and rewarding experience. Do some more research outside of this article and find out just how your real time game needs to be structured. There are many great resources: <a href="http://gafferongames.com/">Glenn Fiedler</a> has extensive experience and generously shares a wealth of knowledge on the topic. Be sure to read all of the articles on multiplayer and programming games that run in real time. He covers the basics of <a href="http://gafferongames.com/networking-for-game-programmers/what-every-programmer-needs-to-know-about-game-networking/">What Every Game Programmer Needs To Know About Networking</a>, and also just as important is his article and demo on <a href="http://gafferongames.com/game-physics/networked-physics/">Networked Physics</a>.</p>
+
+<p>Another set of good articles are from Forrest Smith, who worked on the Supreme Commander engine at Gas Powered Games. This article is aimed at Real time Strategy Games (RTS): The first part, <a href="http://www.altdevblogaday.com/2011/07/09/synchronous-rts-engines-and-a-tale-of-desyncs/">Synchronous RTS Engines and a Tale of Desyncs</a> and the second, <a href="http://www.altdevblogaday.com/2011/07/24/synchronous-rts-engines-2-sync-harder/">Synchronous RTS Engines 2: Sync Harder</a>.</p>
+</div>
+  
+  
+  <section class="author-meta">
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sven Bergström</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-18T12:00:00+00:00" pubdate="" data-updated="true">Jul 18<span>th</span>, 2012</time>
+      in 
+
+<span class="categories">
+  
+    <a class="category" href="http://buildnewgames.com/blog/categories/multiplayer/">Multiplayer</a>
+  
+</span>
+
+.
+    </p>
+    
+      <div class="sharing">
+  
+  <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./Real Time Multiplayer in HTML5 - Build New Games_files/tweet_button.6f0f2e104cd4fbbafb16bbad6813f68d.en.html" style="position: static; visibility: visible; width: 60px; height: 20px;" data-url="http://buildnewgames.com/real-time-multiplayer/"></iframe>
+  
+  
+  <div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px; background: transparent;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1463513535118" name="I0_1463513535118" src="./Real Time Multiplayer in HTML5 - Build New Games_files/fastbutton.html" data-gapiattached="true" title="+1"></iframe></div>
+  
+  
+    <div class="fb-like fb_iframe_widget" data-send="true" data-width="350" data-show-faces="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=212934732101925&amp;container_width=768&amp;href=http%3A%2F%2Fbuildnewgames.com%2Freal-time-multiplayer%2F&amp;locale=en_US&amp;sdk=joey&amp;send=true&amp;show_faces=false&amp;width=350"><span style="vertical-align: bottom; width: 350px; height: 20px;"><iframe name="f1ce1dc67a9de44" width="350px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="./Real Time Multiplayer in HTML5 - Build New Games_files/like.html" style="border: none; visibility: visible; width: 350px; height: 20px;" class=""></iframe></span></div>
+  
+  <a href="http://www.reddit.com/submit" onclick="window.location = &#39;http://www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"> <img src="./Real Time Multiplayer in HTML5 - Build New Games_files/spreddit7.gif" alt="submit to reddit" border="0"> </a>
+  
+  <iframe frameborder="no" scrolling="no" height="28px" width="100px" src="./Real Time Multiplayer in HTML5 - Build New Games_files/upvote.html">iframes not supported by your browser</iframe>
+  
+</div>
+
+    
+    <!--
+      <p>
+      
+        <a class="basic-alignment left" href="/progressive-enhancement/" title="Previous Post: Progressive Enhancement in Browser-Based Games">&laquo; Progressive Enhancement in Browser-Based Games</a>
+      
+      
+        <a class="basic-alignment right" href="/garbage-collector-friendly-code/" title="Next Post: High-Performance, Garbage-Collector-Friendly Code">High-Performance, Garbage-Collector-Friendly Code &raquo;</a>
+      
+      </p>
+    -->
+  </section>
+
+  <section id="comments">
+    <h3>Comments</h3>
+    <div id="disqus_thread" aria-live="polite"><iframe id="dsq-app2" name="dsq-app2" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./Real Time Multiplayer in HTML5 - Build New Games_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 7706px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe><iframe id="indicator-north" name="indicator-north" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" style="width: 768px !important; border: none !important; overflow: hidden !important; top: 0px !important; min-width: 768px !important; max-width: 768px !important; position: fixed !important; z-index: 2147483646 !important; height: 29px !important; min-height: 29px !important; max-height: 29px !important; display: none !important;" src="./Real Time Multiplayer in HTML5 - Build New Games_files/saved_resource(1).html"></iframe><iframe id="indicator-south" name="indicator-south" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" style="width: 768px !important; border: none !important; overflow: hidden !important; bottom: 0px !important; min-width: 768px !important; max-width: 768px !important; position: fixed !important; z-index: 2147483646 !important; height: 29px !important; min-height: 29px !important; max-height: 29px !important; display: none !important;" src="./Real Time Multiplayer in HTML5 - Build New Games_files/saved_resource(2).html"></iframe></div>
+  </section>
+
+  <aside class="related-articles">
+
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+            
+    <h2>related articles</h2>
+
+    <ul>
+          
+          <li>
+            <a href="http://buildnewgames.com/team-snake/">Team Snake: A Post Mortem</a>
+            <span class="byline">by Darius Kazemi</span>
+          </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+          <li>
+            <a href="http://buildnewgames.com/optimizing-websockets-bandwidth/">Optimizing WebSockets Bandwidth</a>
+            <span class="byline">by Eric Li</span>
+          </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+          <li>
+            <a href="http://buildnewgames.com/websockets/">WebSockets: A Guide</a>
+            <span class="byline">by Jack Lawson</span>
+          </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+      
+    </ul>
+      
+
+    
+
+      
+        
+          
+            
+    <h2>more stuff</h2>
+
+    <ul>
+          
+          <li>
+            <a href="http://buildnewgames.com/webgl-threejs/">Creating a 3D game with Three.js and WebGL</a>
+            <span class="byline">by Nikhil Suresh</span>
+          </li>
+        
+      
+        
+          
+          <li>
+            <a href="http://buildnewgames.com/simulating-natural-systems/">Simulating Natural Systems in a Web Browser</a>
+            <span class="byline">by Vince Allen</span>
+          </li>
+        
+      
+        
+          
+          <li>
+            <a href="http://buildnewgames.com/making-games-fun/">Making Games Fun</a>
+            <span class="byline">by Burak Kanber</span>
+          </li>
+        
+      
+        
+          
+          <li>
+            <a href="http://buildnewgames.com/vector-field-collision-avoidance/">Vector Field Obstacle Avoidance</a>
+            <span class="byline">by Alexander Sutherland</span>
+          </li>
+        
+      
+        
+          
+          <li>
+            <a href="http://buildnewgames.com/introduction-to-crafty/">An introduction to the Crafty game engine</a>
+            <span class="byline">by Darren Torpey</span>
+          </li>
+        
+      
+      
+    </ul>
+      
+
+    <a href="http://buildnewgames.com/">Home</a>
+  </aside>
+</article>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'buildnewgames';
+    
+      
+      // var disqus_developer = 1;
+      var disqus_identifier = 'http://buildnewgames.com/real-time-multiplayer/';
+      var disqus_url = 'http://buildnewgames.com/real-time-multiplayer/';
+      var disqus_script = 'embed.js';
+    
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Real Time Multiplayer in HTML5 - Build New Games_files/xd_arbiter.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Real Time Multiplayer in HTML5 - Build New Games_files/xd_arbiter(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="f1894a9d0c00fc8" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" src="./Real Time Multiplayer in HTML5 - Build New Games_files/ping.html" style="display: none;"></iframe></div></div></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+    </section>
+  
+
+
+  
+
+  <footer class="medium">
+    Edited and operated by <a href="http://bocoup.com/">Bocoup</a>.
+  </footer>
+
+  <footer class="small">
+    <p>
+      Edited and operated by <a href="http://bocoup.com/">Bocoup</a>
+    </p>
+  </footer>
+
+  <script type="text/javascript">
+
+    // GA stuffs
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1464992-54']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+<iframe name="oauth2relay776131823" id="oauth2relay776131823" src="./Real Time Multiplayer in HTML5 - Build New Games_files/postmessageRelay.html" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><div id="feedly-mini" title="feedly Mini tookit"></div><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" src="./Real Time Multiplayer in HTML5 - Build New Games_files/saved_resource(3).html"></iframe></body></html>
